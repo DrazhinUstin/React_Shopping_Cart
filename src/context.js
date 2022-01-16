@@ -5,12 +5,28 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     const initialState = {
-        loading: false,
+        loading: true,
         cart: [],
         totalAmount: 0,
         totalPrice: 0,
     };
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    const clearCart = () => {
+        dispatch({ type: 'CLEAR_CART' });
+    };
+
+    const removeCartItem = (id) => {
+        dispatch({ type: 'REMOVE_CART_ITEM', payload: id });
+    };
+
+    const toggleCartItemAmount = (id, key) => {
+        dispatch({ type: 'TOGGLE_CART_ITEM_AMOUNT', payload: { id, key } });
+    };
+
+    useEffect(() => {
+        dispatch({ type: 'CALCULATE_CART_TOTALS' });
+    }, [state.cart]);
 
     useEffect(async () => {
         dispatch({ type: 'LOADING' });
@@ -23,7 +39,11 @@ const AppProvider = ({ children }) => {
         }
     }, []);
 
-    return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
+    return (
+        <AppContext.Provider value={{ ...state, clearCart, removeCartItem, toggleCartItemAmount }}>
+            {children}
+        </AppContext.Provider>
+    );
 };
 
 const useGlobalContext = () => useContext(AppContext);

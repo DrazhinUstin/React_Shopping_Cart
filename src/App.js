@@ -7,7 +7,15 @@ const App = () => {
     const { loading } = useGlobalContext();
 
     if (loading) {
-        return <h1>loading</h1>;
+        return (
+            <>
+                <Navbar />
+                <div className='title'>
+                    <h2>Loading...</h2>
+                    <span className='title-underline'></span>
+                </div>
+            </>
+        );
     }
 
     return (

@@ -29,6 +29,7 @@ img {
 }
 
 button {
+    font-size: 1rem;
     line-height: 1;
     cursor: pointer;
 }
@@ -37,6 +38,7 @@ button {
     @extend %grid-center;
     border: none;
     background-color: transparent;
+    color: $primary-clr;
 }
 
 .section-center {
@@ -48,6 +50,9 @@ button {
 .title {
     margin: 4rem 0;
     text-align: center;
+    h2 {
+        font-size: 2rem;
+    }
     &-underline {
         width: 5rem;
         height: 0.25rem;

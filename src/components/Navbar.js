@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className='nav'>
             <div className='navbar section-center'>
-                <h2 className='navbar-logo'>shopping cart</h2>
+                <h1 className='navbar-logo'>shopping cart</h1>
                 <div className='navbar-counter'>
                     <FaShoppingBag />
                     <span>{totalAmount}</span>
