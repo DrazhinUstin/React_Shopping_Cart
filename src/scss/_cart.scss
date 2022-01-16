@@ -1,0 +1,69 @@
+.cart {
+    max-width: 800px;
+    margin: 4rem auto;
+    &-item {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        grid-gap: 1rem;
+        margin-bottom: 2rem;
+        img {
+            width: 5rem;
+            height: 5rem;
+            object-fit: cover;
+        }
+        h4 {
+            margin-bottom: 0.5rem;
+            &.price {
+                color: $salmon;
+            }
+        }
+        div:last-child {
+            text-align: center;
+            p {
+                margin: 0.25rem 0;
+            }
+            button {
+                color: $primary-clr;
+                font-size: 1rem;
+            }
+        }
+        .remove-btn {
+            padding: 0.25rem;
+            border: none;
+            border-radius: $radius;
+            background-color: $dark-red;
+            color: $white;
+            font-size: 0.9rem;
+        }
+    }
+    &-total {
+        @extend %flex-between;
+        margin: 4rem 0;
+        padding-top: 1rem;
+        border-top: 2px solid $primary-clr-2;
+        letter-spacing: $spacing;
+        span {
+            color: $dark-red;
+        }
+    }
+    &-clear-btn {
+        width: 10rem;
+        display: block;
+        margin: 0 auto;
+        padding: 0.5rem 0;
+        border: 2px solid $dark-red;
+        border-radius: $radius;
+        background: transparent;
+        color: $dark-red;
+        box-shadow: $shadow;
+        font-size: 1rem;
+        text-transform: capitalize;
+        letter-spacing: $spacing;
+        transition: $ease-trans;
+        &:hover {
+            background-color: $dark-red;
+            color: $white;
+        }
+    }
+}
